@@ -1,1 +1,1 @@
-[App Demo](https://smit-quizz.netlify.app/)
+[Click me to see App Demo](https://smit-quizz.netlify.app/)
