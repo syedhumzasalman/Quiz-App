@@ -1,5 +1,6 @@
 let textarea = document.getElementById("textarea");
-let quizForm = document.getElementById('quizForm');
+let quizPage = document.getElementById('quizPage');
+let saveCorrectAnswer = [];
 
 function getData() {
     let text = textarea.value
@@ -35,7 +36,14 @@ function getData() {
     let finalResult = [];
 
     for (let i = 0; i < result.length; i++) {
-        temp.push(result[i])
+        let data = result[i].trim()
+
+        if(data.includes(":")){
+            saveCorrectAnswer.push(data.slice(1).trim());
+            data = data.replace(":", "");
+        }
+
+        temp.push(data)
         // console.log(temp);
 
         if (temp.length === 5) {
@@ -71,7 +79,7 @@ function getData() {
         // console.log(index);
 
         
-            quizForm.innerHTML += `<div class="card mb-4 shadow-sm">
+            quizPage.innerHTML += `<div class="card mb-4 shadow-sm">
             <div class="card-body">
             <h5 class="card-title">Q${index + 1}: ${q.question}</h5>
 
@@ -99,9 +107,12 @@ function getData() {
         </div>`
     }); 
 
-    // openFullscreen();
+    openFullscreen();
 
 }
+
+// console.log(saveCorrectAnswer);
+
 
 function submitAnswer() {
     
@@ -136,8 +147,8 @@ document.getElementById("rulesButton").addEventListener("click", function() {
         html: `
             <ul>
                  <li>The question will be written first, followed by four options.</li>
-                <li><strong>Only four options are allowed</strong> for each question.</li>
-                <li>The correct answer is marked with an <span class="text-success">*</span> sign.</li>
+                <li>Only four options are allowed for each question, neither less nor more</li>
+                <li>The correct answer should begin with <span><strong>" : " <strong></span> sign</li>
                 <li>Please follow all instructions to avoid any issues.</li>
             </ul>`,
         icon: 'info',

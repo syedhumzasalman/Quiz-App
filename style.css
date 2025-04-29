@@ -29,7 +29,7 @@ body::before {
     z-index: 0;
 }
 
-#quizForm {
+#quizPage {
     position: relative;
     z-index: 1;
 }
