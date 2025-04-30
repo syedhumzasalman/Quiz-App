@@ -43,7 +43,7 @@ Main function triggered when the user submits input.
 - Validates input.
 - Splits input into lines.
 - Cleans and parses lines into question-objects.
-- Stores correct answers (without `::`) in `saveCorrectAnswer`.
+- Stores correct answers (with `::`) in `saveCorrectAnswer`.
 - Verifies that exactly four options are provided per question.
 - Displays quiz questions as cards with radio buttons.
 - Launches fullscreen mode.
