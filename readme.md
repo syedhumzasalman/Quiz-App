@@ -60,7 +60,7 @@ This function handles the answer submission logic by comparing the user's select
 
 
 ### 🖥️ openFullscreen()
-Triggers the browser’s fullscreen API for immersive quiz experience.
+Triggers the browser’s fullscreen API for immersive quiz experience. 
 
 ---
 
