@@ -193,11 +193,11 @@ document.getElementById("rulesButton").addEventListener("click", function() {
             <h5><strong>📥 Input Format</strong></h5>
             <p>Each question should be written in the following format:</p>
             <pre>
-    What is the capital of France?
+    What is the capital of Pakistan?
 Paris                     
-::London // Correct Answer
-Berlin                   
-Madrid                    </pre>
+::Islamabad // Correct Answer
+Karachi                   
+Dubai                    </pre>
         `,
         icon: 'info',
         confirmButtonText: 'Got it!',

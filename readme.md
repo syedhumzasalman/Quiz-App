@@ -22,16 +22,16 @@ This JavaScript code implements a simple quiz application. Users can input quest
 Each question should be written in the following format:
 
 ```
-What is the capital of France?
+What is the capital of Pakistan?
 Paris
-::London
-Berlin
-Madrid
+::Islamabad
+Karachi
+Dubai
 ```
 
 - The first line is the question.
 - The next four lines are options.
-- The correct option must begin with a colon `:`, e.g., `::London`.
+- The correct option must begin with a colon `:`, e.g., `::Islamabad`.
 
 ---
 
