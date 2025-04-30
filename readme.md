@@ -4,7 +4,7 @@
 [Click me to see App Demo](https://smit-quizz.netlify.app/)
 
 ## 📌 Description
-This JavaScript code implements a simple quiz application. Users can input questions and multiple-choice options into a textarea. Each question must have exactly four options, and the correct answer must begin with a colon `:` symbol. The questions are then displayed dynamically, and the quiz launches in fullscreen mode.
+This JavaScript code implements a simple quiz application. Users can input questions and multiple-choice options into a textarea. Each question must have exactly four options, and the correct answer must begin with a colon `::` symbol. The questions are then displayed dynamically, and the quiz launches in fullscreen mode.
 
 ---
 
@@ -24,14 +24,14 @@ Each question should be written in the following format:
 ```
 What is the capital of France?
 Paris
-:London
+::London
 Berlin
 Madrid
 ```
 
 - The first line is the question.
 - The next four lines are options.
-- The correct option must begin with a colon `:`, e.g., `:London`.
+- The correct option must begin with a colon `:`, e.g., `::London`.
 
 ---
 
@@ -43,7 +43,7 @@ Main function triggered when the user submits input.
 - Validates input.
 - Splits input into lines.
 - Cleans and parses lines into question-objects.
-- Stores correct answers (without `:`) in `saveCorrectAnswer`.
+- Stores correct answers (without `::`) in `saveCorrectAnswer`.
 - Verifies that exactly four options are provided per question.
 - Displays quiz questions as cards with radio buttons.
 - Launches fullscreen mode.
@@ -51,9 +51,13 @@ Main function triggered when the user submits input.
 ---
 
 ### 💾 submitAnswer()
-(Currently empty – intended to handle answer submission logic such as checking user answers against `saveCorrectAnswer`.)
+This function handles the answer submission logic by comparing the user's selected answers with the correct answers stored in the `saveCorrectAnswer` array. It calculates the total number of correct answers and displays the result in a SweetAlert popup with the user's score and total correct answers. After showing the results, the page reloads to reset the quiz.
 
----
+#### Key Points:
+- Loops through all questions to check if the user selected the correct option.
+- Displays a result with total questions, correct answers, and score percentage.
+- The page reloads after displaying the result.
+
 
 ### 🖥️ openFullscreen()
 Triggers the browser’s fullscreen API for immersive quiz experience.

@@ -38,9 +38,9 @@ function getData() {
     for (let i = 0; i < result.length; i++) {
         let data = result[i].trim()
 
-        if(data.includes(":")){
-            saveCorrectAnswer.push(data.slice(1).trim());
-            data = data.replace(":", "");
+        if(data.includes("::")){
+            saveCorrectAnswer.push(data.slice(2).trim());
+            data = data.replace("::", "");
         }
 
         temp.push(data)
@@ -65,6 +65,8 @@ function getData() {
             icon: 'warning',
             title: 'Incomplete Entry',
             text: 'Please make sure each question has exactly 4 options.'
+        }).then(() => {
+            location.reload();
         });
     }
 
@@ -115,8 +117,44 @@ function getData() {
 
 
 function submitAnswer() {
-    
+    let totalQuestions = saveCorrectAnswer.length;
+    let correctCount = 0;
+
+    for (let i = 0; i < totalQuestions; i++) {
+        let selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+        // console.log(selectedOption);
+        
+        if (selectedOption) {
+            let userAnswer = selectedOption.nextElementSibling.textContent.trim();
+            let correctAnswer = saveCorrectAnswer[i].trim();
+
+            if (userAnswer === correctAnswer) {
+                correctCount++;
+            }
+        }
+    }
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Quiz Result',
+        html: `
+            <p><strong>Total Questions:</strong> ${totalQuestions}</p>
+            <p><strong>Correct Answers:</strong> ${correctCount}</p>
+            <p><strong>Your Score:</strong> ${((correctCount / totalQuestions) * 100).toFixed(2)}%</p>
+        `,
+        confirmButtonText: 'OK',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        customClass: {
+            popup: 'bg-dark text-white',
+            title: 'fs-4 text-success',
+            content: 'fs-5'
+        }
+    }).then(() => {
+        location.reload();
+    });
 }
+
 
 
 function openFullscreen() {
@@ -135,7 +173,7 @@ function openFullscreen() {
 
 document.addEventListener("fullscreenchange", function() {
     if (!document.fullscreenElement) {
-        location.reload(); 
+        location.reload();
     }
 });
 
@@ -148,7 +186,7 @@ document.getElementById("rulesButton").addEventListener("click", function() {
             <ul>
                  <li>The question will be written first, followed by four options.</li>
                 <li>Only four options are allowed for each question, neither less nor more</li>
-                <li>The correct answer should begin with <span><strong>" : " <strong></span> sign</li>
+                <li>The correct answer should begin with <span><strong>" :: " <strong></span> sign</li>
                 <li>Please follow all instructions to avoid any issues.</li>
             </ul>`,
         icon: 'info',
