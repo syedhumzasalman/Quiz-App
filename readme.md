@@ -104,7 +104,5 @@ Displays a SweetAlert modal with quiz instructions when the user clicks the **"R
 
 ## 🛠 To-Do / Enhancements
 
-- Implement logic in `submitAnswer()` to evaluate user responses.
-- Add scoring and result display.
 - Style the quiz layout for better UX.
 - Support image-based questions or multimedia in the future.
