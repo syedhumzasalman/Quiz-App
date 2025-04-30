@@ -185,10 +185,20 @@ document.getElementById("rulesButton").addEventListener("click", function() {
         html: `
             <ul>
                  <li>The question will be written first, followed by four options.</li>
-                <li>Only four options are allowed for each question, neither less nor more</li>
-                <li>The correct answer should begin with <span><strong>" :: " <strong></span> sign</li>
-                <li>Please follow all instructions to avoid any issues.</li>
-            </ul>`,
+                 <li>Only four options are allowed for each question, neither less nor more.</li>
+                 <li>The correct answer should begin with <span><strong>" :: " </strong></span> sign.</li>
+                 <li>Please follow all instructions to avoid any issues.</li>
+            </ul>
+            <hr>
+            <h5><strong>📥 Input Format</strong></h5>
+            <p>Each question should be written in the following format:</p>
+            <pre>
+    What is the capital of France?
+Paris                     
+::London // Correct Answer
+Berlin                   
+Madrid                    </pre>
+        `,
         icon: 'info',
         confirmButtonText: 'Got it!',
         customClass: {
@@ -198,3 +208,4 @@ document.getElementById("rulesButton").addEventListener("click", function() {
         }
     });
 });
+
